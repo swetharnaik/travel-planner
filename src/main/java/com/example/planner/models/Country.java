@@ -1,24 +1,24 @@
-package com.example.planner;
+package com.example.planner.models;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name="countries")
-public class Country {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
+public class Country implements Serializable {
+    @EmbeddedId
+    private CountryKey countryKey;
 
     @Column(length = 25)
     @Length(min = 3, max = 4)
