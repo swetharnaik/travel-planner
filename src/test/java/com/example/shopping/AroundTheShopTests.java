@@ -1,10 +1,10 @@
-package com.example.planner;
+package com.example.shopping;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RoamAroundTheWorldApplicationTests {
+class AroundTheShopTests {
 
 	@Test
 	void contextLoads() {
