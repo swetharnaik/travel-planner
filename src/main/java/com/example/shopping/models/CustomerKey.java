@@ -1,4 +1,4 @@
-package com.example.planner.models;
+package com.example.shopping.models;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -17,11 +17,11 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Getter
 @Setter
-public class CountryKey implements Serializable {
+public class CustomerKey implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String alpha2Code;
+    private String emailAddress;
 
 }

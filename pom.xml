@@ -8,11 +8,11 @@
 		<version>2.7.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>holidu</artifactId>
+	<groupId>com.example.shopping</groupId>
+	<artifactId>mega-shooping</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>holidu-food</name>
-	<description>Project for Spring Boot Hibernate</description>
+	<name>mega-shooping</name>
+	<description>Pet Project for Spring Boot Hibernate</description>
 	<properties>
 		<java.version>18</java.version>
 	</properties>
@@ -31,9 +31,13 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-<!--			<scope>runtime</scope>-->
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
