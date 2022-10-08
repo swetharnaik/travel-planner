@@ -1,15 +1,11 @@
 {
-  "customerKey": {
-    "id": 1,
-    "emailAddress": "joerogan@gmail.com"
-  },
   "firstName": "Joe",
   "lastName": "Rogan",
   "address": {
-    "id": 10,
     "streetName": "Mushroom Street",
     "district": "Umami",
     "pinCode": "55555",
     "country": "Uganda"
-  }
+  },
+  "emailAddress": "joerogan@gmail.com"
 }

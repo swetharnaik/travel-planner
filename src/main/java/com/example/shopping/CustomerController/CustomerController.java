@@ -1,5 +1,6 @@
 package com.example.shopping.CustomerController;
 
+import com.example.shopping.dto.CustomerDto;
 import com.example.shopping.models.Customer;
 import com.example.shopping.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,8 @@ public class CustomerController {
     CustomerService customerService;
 
     @GetMapping("/{id}")
-    Customer getCountryById(@PathVariable Long id) {
-        return customerService.getCustomeryById(id);
+    CustomerDto getCountryById(@PathVariable Long id) {
+        return customerService.getCustomerById(id);
     }
 
     @GetMapping

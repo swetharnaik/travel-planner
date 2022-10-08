@@ -36,7 +36,7 @@ public class Order {
             inverseJoinColumns = @JoinColumn(name = "item_id"))
     private List<Item> items;
 
-    @ManyToOne  //(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     @JoinColumn(name = "customer_email", referencedColumnName = "email_address")
     private Customer customer;

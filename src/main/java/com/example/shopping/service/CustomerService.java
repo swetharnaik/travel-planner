@@ -1,7 +1,10 @@
 package com.example.shopping.service;
 
+import com.example.shopping.dto.CustomerDto;
+import com.example.shopping.mapper.CustomerMapper;
 import com.example.shopping.models.Customer;
 import com.example.shopping.repository.CustomerRepository;
+import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -17,9 +20,13 @@ public class CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
-    public Customer getCustomeryById(Long id) {
-        Optional<Customer> optionalCountry = customerRepository.findByCustomerKey_Id(id);
-        return optionalCountry.orElseGet(Customer::new);
+    public CustomerDto getCustomerById(Long id) {
+        CustomerMapper customerMapper = Mappers.getMapper(CustomerMapper.class);
+        Optional<Customer> optionalCustomer = customerRepository.findByCustomerKey_Id(id);
+        if(optionalCustomer.isPresent())
+            return customerMapper.customerToDto(optionalCustomer.get());
+        else
+            return new CustomerDto();
     }
 
     public List<Customer> getCustomerByName(String name) {
