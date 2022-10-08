@@ -10,9 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
 
@@ -30,13 +30,14 @@ public class Order {
     @Embedded
     private Price price;
 
-    @OneToMany
-    @JoinColumn(name = "order_id")
+    @ManyToMany
+    @JoinTable(name = "order_item",
+            joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "item_id"))
     private List<Item> items;
 
     @ManyToOne  //(fetch = FetchType.LAZY)
-    @JoinColumns({
-            @JoinColumn(name = "customer_id", referencedColumnName = "id"),
-            @JoinColumn(name = "customer_email", referencedColumnName = "email_address")})
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    @JoinColumn(name = "customer_email", referencedColumnName = "email_address")
     private Customer customer;
 }

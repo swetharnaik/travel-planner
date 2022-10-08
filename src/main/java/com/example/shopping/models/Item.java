@@ -30,7 +30,4 @@ public class Item {
 
     @Embedded
     private Price itemPrice;
-
-    @Column
-    private Long order_id;
 }

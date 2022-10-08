@@ -13,8 +13,7 @@
       "itemPrice": {
         "amount": 15,
         "currency": "EUR"
-      },
-      "order_id": 111
+      }
     },
     {
       "id": 9999,
@@ -24,8 +23,7 @@
       "itemPrice": {
         "amount": 5,
         "currency": "EUR"
-      },
-      "order_id": 111
+      }
     }
   ],
   "customer": {
