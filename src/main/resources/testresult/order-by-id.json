@@ -1,0 +1,46 @@
+{
+  "id": 111,
+  "price": {
+    "amount": 20,
+    "currency": "EUR"
+  },
+  "items": [
+    {
+      "id": 9998,
+      "itemName": "Lasso",
+      "itemDescription": "ABC Description",
+      "sellerName": "Souled Store",
+      "itemPrice": {
+        "amount": 15,
+        "currency": "EUR"
+      },
+      "order_id": 111
+    },
+    {
+      "id": 9999,
+      "itemName": "Shield",
+      "itemDescription": "XYZ Description",
+      "sellerName": "Mars Tools",
+      "itemPrice": {
+        "amount": 5,
+        "currency": "EUR"
+      },
+      "order_id": 111
+    }
+  ],
+  "customer": {
+    "customerKey": {
+      "id": 2,
+      "emailAddress": "wonderwoman@dc.com"
+    },
+    "firstName": "Wonder",
+    "lastName": "Woman",
+    "address": {
+      "id": 20,
+      "streetName": "Pasta Street",
+      "district": "Ortisei",
+      "pinCode": "12345",
+      "country": "Italy"
+    }
+  }
+}

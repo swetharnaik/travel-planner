@@ -12,7 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "shop_order")
@@ -28,9 +30,9 @@ public class Order {
     @Embedded
     private Price price;
 
-    /*@OneToMany
-    @JoinColumn(name = "item_id", referencedColumnName = "id")
-    private Set<Item> items;*/
+    @OneToMany
+    @JoinColumn(name = "order_id")
+    private List<Item> items;
 
     @ManyToOne  //(fetch = FetchType.LAZY)
     @JoinColumns({
