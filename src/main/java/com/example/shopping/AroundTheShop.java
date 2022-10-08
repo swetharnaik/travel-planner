@@ -1,13 +1,13 @@
-package com.example.planner;
+package com.example.shopping;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RoamAroundTheWorldApplication {
+public class AroundTheShop {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RoamAroundTheWorldApplication.class, args);
+		SpringApplication.run(AroundTheShop.class, args);
 	}
 
 }
