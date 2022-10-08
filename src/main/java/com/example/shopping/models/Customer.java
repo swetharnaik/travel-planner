@@ -8,8 +8,9 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Getter
 @Setter
@@ -26,7 +27,8 @@ public class Customer {
     @Size(min = 3, max = 4)     //bean validation annotation
     private String lastName;
 
-    @OneToOne
-    @JoinColumn(name = "address_id", referencedColumnName = "id")
-    private Address address;
+    @OneToMany
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    @JoinColumn(name = "customer_email", referencedColumnName = "email_address")
+    private List<Address> address;
 }

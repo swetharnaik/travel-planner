@@ -1,11 +1,18 @@
 {
   "firstName": "Joe",
   "lastName": "Rogan",
-  "address": {
-    "streetName": "Mushroom Street",
-    "district": "Umami",
-    "pinCode": "55555",
-    "country": "Uganda"
-  },
-  "emailAddress": "joerogan@gmail.com"
+  "addresses": [
+    {
+      "streetName": "Mushroom Street",
+      "district": "Umami",
+      "pinCode": "55555",
+      "country": "Uganda"
+    },
+    {
+      "streetName": "Banana Street",
+      "district": "Kochi",
+      "pinCode": "67890",
+      "country": "India"
+    }
+  ]
 }

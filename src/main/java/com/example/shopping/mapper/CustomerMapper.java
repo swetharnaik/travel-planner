@@ -9,6 +9,7 @@ import org.mapstruct.Mapping;
 public interface CustomerMapper {
 
     @Mapping(target="emailAddress", source="customerKey.emailAddress")
+    @Mapping(target="addresses", source="address")
     CustomerDto customerToDto(Customer customer);
 
 }

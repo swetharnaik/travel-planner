@@ -1,11 +1,10 @@
+INSERT INTO customer (id, email_address, first_name, last_name) VALUES (1, 'joerogan@gmail.com', 'Joe', 'Rogan');
+INSERT INTO customer (id, email_address, first_name, last_name) VALUES (2, 'wonderwoman@dc.com', 'Wonder', 'Woman');
+INSERT INTO customer (id, email_address, first_name, last_name) VALUES (3, 'batman@dc.com', 'Bruce', 'Wayne');
 
-INSERT INTO address (id, street_name, district, country, pin_code) VALUES (10, 'Mushroom Street', 'Umami', 'Uganda', '55555');
-INSERT INTO address (id, street_name, district, country, pin_code) VALUES (20, 'Pasta Street', 'Ortisei', 'Italy', '12345');
-INSERT INTO address (id, street_name, district, country, pin_code) VALUES (30, 'Banana Street', 'Kochi', 'India', '67890');
-
-INSERT INTO customer (id, email_address, first_name, last_name, address_id) VALUES (1, 'joerogan@gmail.com', 'Joe', 'Rogan', 10);
-INSERT INTO customer (id, email_address, first_name, last_name, address_id) VALUES (2, 'wonderwoman@dc.com', 'Wonder', 'Woman', 20);
-INSERT INTO customer (id, email_address, first_name, last_name, address_id) VALUES (3, 'batman@dc.com', 'Bruce', 'Wayne', 30);
+INSERT INTO address (id, street_name, district, country, pin_code, customer_id, customer_email) VALUES (10, 'Mushroom Street', 'Umami', 'Uganda', '55555', 1, 'joerogan@gmail.com');
+INSERT INTO address (id, street_name, district, country, pin_code, customer_id, customer_email) VALUES (20, 'Pasta Street', 'Ortisei', 'Italy', '12345', 2, 'wonderwoman@dc.com');
+INSERT INTO address (id, street_name, district, country, pin_code, customer_id, customer_email) VALUES (30, 'Banana Street', 'Kochi', 'India', '67890', 1, 'joerogan@gmail.com');
 
 INSERT INTO shop_order (id, amount, currency, customer_id, customer_email) VALUES (111, 20, 'EUR', 2, 'wonderwoman@dc.com');
 
