@@ -22,12 +22,12 @@ public class CustomerController {
     CustomerService customerService;
 
     @GetMapping("/{id}")
-    CustomerDto getCountryById(@PathVariable Long id) {
+    CustomerDto getCustomerById(@PathVariable Long id) {
         return customerService.getCustomerById(id);
     }
 
     @GetMapping
-    List<Customer> getCountryByName(@RequestParam String name) {
+    List<CustomerDto> getCustomerByName(@RequestParam String name) {
         return customerService.getCustomerByName(name);
     }
 
