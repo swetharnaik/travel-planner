@@ -5,7 +5,7 @@ import com.example.shopping.models.Customer;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(uses = {AddressMapper.class})
+@Mapper(uses = AddressMapper.class)
 public interface CustomerMapper {
 
     @Mapping(target="emailAddress", source="customerKey.emailAddress")
