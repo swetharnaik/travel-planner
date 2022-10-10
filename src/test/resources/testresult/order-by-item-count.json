@@ -1,0 +1,36 @@
+[
+  {
+    "id": 111,
+    "price": {
+      "amount": 20,
+      "currency": "EUR"
+    },
+    "items": [
+      {
+        "id": 9999,
+        "itemName": "Shield",
+        "itemDescription": "XYZ Description",
+        "sellerName": "Mars Tools"
+      },
+      {
+        "id": 9998,
+        "itemName": "Lasso",
+        "itemDescription": "ABC Description",
+        "sellerName": "Souled Store"
+      }
+    ],
+    "customer": {
+      "firstName": "Wonder",
+      "lastName": "Woman",
+      "addresses": [
+        {
+          "streetName": "Pasta Street",
+          "district": "Ortisei",
+          "pinCode": "12345",
+          "country": "Italy"
+        }
+      ],
+      "emailAddress": "wonderwoman@dc.com"
+    }
+  }
+]
