@@ -21,7 +21,7 @@ public class CustomerControllerIntegrationTest {
 
     @Test
     void returnSuccessForGetCustomerById() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/customer/1"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/customers/1"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()

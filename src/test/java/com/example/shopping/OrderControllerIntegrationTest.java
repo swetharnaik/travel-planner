@@ -21,7 +21,7 @@ public class OrderControllerIntegrationTest {
 
     @Test
     void returnSuccessForGetOrderById() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/order/111"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/orders/111"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
@@ -31,7 +31,7 @@ public class OrderControllerIntegrationTest {
 
     @Test
     void returnSuccessForGetOrderByItemSize() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/order?itemSize=2"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/orders?itemSize=2"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
