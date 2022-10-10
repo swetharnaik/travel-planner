@@ -20,7 +20,7 @@ public class OrderControllerIntegrationTest {
     private MockMvc mockMvc;
 
     @Test
-    void returnSuccessForGetCountryById() throws Exception {
+    void returnSuccessForGetOrderById() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/order/111"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())

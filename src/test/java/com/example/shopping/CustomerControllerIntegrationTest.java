@@ -6,6 +6,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.util.ResourceUtils;
 
@@ -19,8 +20,9 @@ public class CustomerControllerIntegrationTest {
     private MockMvc mockMvc;
 
     @Test
-    void returnSuccessForGetCountryById() throws Exception {
+    void returnSuccessForGetCustomerById() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/customer/1"))
+                .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
                         .json(Files.readString(ResourceUtils
