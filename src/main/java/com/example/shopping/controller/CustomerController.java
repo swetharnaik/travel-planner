@@ -1,4 +1,4 @@
-package com.example.shopping.CustomerController;
+package com.example.shopping.controller;
 
 import com.example.shopping.dto.CustomerDto;
 import com.example.shopping.models.Customer;

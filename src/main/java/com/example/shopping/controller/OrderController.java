@@ -1,12 +1,15 @@
-package com.example.shopping.CustomerController;
+package com.example.shopping.controller;
 
-import com.example.shopping.models.Order;
+import com.example.shopping.dto.OrderDto;
 import com.example.shopping.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/order")
@@ -16,8 +19,12 @@ public class OrderController {
     OrderService orderService;
 
     @GetMapping("/{id}")
-    Order getOrderById(@PathVariable Long id) {
-
+    OrderDto getOrderById(@PathVariable Long id) {
         return orderService.getOrderById(id);
+    }
+
+    @GetMapping
+    List<OrderDto> getOrderByItemSize(@RequestParam Long itemSize) {
+        return orderService.getOrdersFromItemSize(itemSize);
     }
 }

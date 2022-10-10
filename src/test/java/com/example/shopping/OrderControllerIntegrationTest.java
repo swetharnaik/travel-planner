@@ -29,5 +29,14 @@ public class OrderControllerIntegrationTest {
                                 .getFile("classpath:testresult/order-by-id.json").toPath())));
     }
 
+    @Test
+    void returnSuccessForGetOrderByItemSize() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/order?itemSize=2"))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content()
+                        .json(Files.readString(ResourceUtils
+                                .getFile("classpath:testresult/order-by-item-count.json").toPath())));
+    }
 
 }
