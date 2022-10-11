@@ -13,6 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedAttributeNode;
+import javax.persistence.NamedEntityGraph;
+import javax.persistence.NamedSubgraph;
 import javax.persistence.Table;
 import java.util.List;
 
@@ -21,6 +24,11 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+@NamedEntityGraph(name = "order-items-customer",
+attributeNodes = {@NamedAttributeNode("items"),
+        @NamedAttributeNode(value = "customer", subgraph = "customer-address")},
+subgraphs = @NamedSubgraph(name = "customer-address",
+        attributeNodes = @NamedAttributeNode("address")))
 public class Order {
 
     @Id
