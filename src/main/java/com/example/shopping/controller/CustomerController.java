@@ -1,7 +1,6 @@
 package com.example.shopping.controller;
 
 import com.example.shopping.dto.CustomerDto;
-import com.example.shopping.models.Customer;
 import com.example.shopping.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +31,7 @@ public class CustomerController {
     }
 
     @PostMapping
-    Customer addCustomer(@RequestBody Customer customer) {
+    CustomerDto addCustomer(@RequestBody CustomerDto customer) {
         return customerService.addCustomer(customer);
     }
 }

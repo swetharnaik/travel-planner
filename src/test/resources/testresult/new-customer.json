@@ -1,0 +1,13 @@
+{
+  "firstName": "ABC",
+  "lastName": "XYZ",
+  "addresses": [
+    {
+      "streetName": "Strasse",
+      "district": "Munchen",
+      "pinCode": "123",
+      "country": "Deutschland"
+    }
+  ],
+  "emailAddress": "adarsh@pk.com"
+}

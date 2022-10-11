@@ -17,26 +17,28 @@ import java.util.stream.Collectors;
 @Service
 public class CustomerService {
 
+    private CustomerMapper customerMapper = Mappers.getMapper(CustomerMapper.class);
     @Autowired
     CustomerRepository customerRepository;
 
     public CustomerDto getCustomerById(Long id) {
-        CustomerMapper customerMapper = Mappers.getMapper(CustomerMapper.class);
-        Optional<Customer> optionalCustomer = customerRepository.findByCustomerKey_Id(id);
+        Optional<Customer> optionalCustomer = customerRepository.findCustomerById(id);
         if(optionalCustomer.isPresent())
-            return customerMapper.customerToDto(optionalCustomer.get());
+            return customerMapper.mapCustomerToDto(optionalCustomer.get());
         else
-            return new CustomerDto();
+            return CustomerDto.builder().build();
     }
 
-    public List<Customer> getCustomerByName(String name) {
+    public List<CustomerDto> getCustomerByName(String name) {
         String[] splitNames = StringUtils.split(name, " ");
         String firstName = splitNames[0];
         String lastName = Arrays.stream(splitNames).skip(1).collect(Collectors.joining(" "));
-        return customerRepository.findByFirstNameAndLastName(firstName, lastName);
+        return customerMapper.mapCustomerListToDtoList(
+                customerRepository.findByFirstNameAndLastName(firstName, lastName));
     }
 
-    public Customer addCustomer(Customer customer) {
-        return customerRepository.save(customer);
+    public CustomerDto addCustomer(CustomerDto customerDto) {
+        Customer customer = customerMapper.mapDtoToCustomer(customerDto);
+        return customerMapper.mapCustomerToDto(customerRepository.save(customer));
     }
 }

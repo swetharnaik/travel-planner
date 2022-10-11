@@ -6,24 +6,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import java.io.Serializable;
 
 @EqualsAndHashCode
 @AllArgsConstructor
-@Embeddable
+//@Embeddable
 @NoArgsConstructor
 @Getter
 @Setter
 public class CustomerKey implements Serializable {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    /**
+     * Generated value doesn't work with embedded id
+     * reference- https://thorben-janssen.com/composite-primary-keys-sequence/
+     **/
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "email_address")
+//    @Column(name = "email_address")
     private String emailAddress;
 
 }
