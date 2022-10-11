@@ -35,7 +35,7 @@ public class CustomerControllerIntegrationTest {
     }
 
     @Test
-    void returnSuccessForPostCustomer() throws Exception {
+    void returnSuccessForAddCustomer() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/customers")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content(new ObjectMapper().writeValueAsString(returnCustomerDto())))
@@ -44,6 +44,27 @@ public class CustomerControllerIntegrationTest {
                 .andExpect(MockMvcResultMatchers.content()
                         .json(Files.readString(ResourceUtils
                                 .getFile("classpath:testresult/new-customer.json").toPath())));
+    }
+
+    @Test
+    void returnSuccessForUpdateCustomer() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.put("/customers/2")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content(new ObjectMapper().writeValueAsString(returnCustomerDto())))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content()
+                        .json(Files.readString(ResourceUtils
+                                .getFile("classpath:testresult/new-customer.json").toPath())));
+    }
+
+    @Test
+    void returnFailureForUpdateCustomerDoesntExist() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.put("/customers/100")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content(new ObjectMapper().writeValueAsString(returnCustomerDto())))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().is4xxClientError());
     }
 
     private CustomerDto returnCustomerDto() {

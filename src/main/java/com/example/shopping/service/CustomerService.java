@@ -1,6 +1,7 @@
 package com.example.shopping.service;
 
 import com.example.shopping.dto.CustomerDto;
+import com.example.shopping.exception.ResourceNotPresentException;
 import com.example.shopping.mapper.CustomerMapper;
 import com.example.shopping.models.Customer;
 import com.example.shopping.repository.CustomerRepository;
@@ -40,5 +41,20 @@ public class CustomerService {
     public CustomerDto addCustomer(CustomerDto customerDto) {
         Customer customer = customerMapper.mapDtoToCustomer(customerDto);
         return customerMapper.mapCustomerToDto(customerRepository.save(customer));
+    }
+
+    public CustomerDto updateCustomer(Long id, CustomerDto customerDto) {
+//        Optional<Customer> optionalCustomer = customerRepository.existsCustomerById(id);
+        if(customerRepository.existsCustomerById(id)) {
+            Customer customer = customerMapper.mapDtoToCustomer(customerDto);
+            customer.setId(id);
+            /**
+             * Test dynamic update
+             **/
+//            Customer customer = optionalCustomer.get();
+//            customer.setFirstName("test");
+            return customerMapper.mapCustomerToDto(customerRepository.save(customer));
+        } else
+            throw new ResourceNotPresentException("Customer does not exist.");
     }
 }

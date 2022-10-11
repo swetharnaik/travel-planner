@@ -2,6 +2,7 @@ package com.example.shopping.models;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.Length;
@@ -23,6 +24,7 @@ import java.util.List;
 @Setter
 @Entity
 @IdClass(CustomerId.class)
+@DynamicUpdate
 public class Customer {
 
     @Id

@@ -12,6 +12,7 @@ import java.util.List;
 @Data
 @Builder
 public class CustomerDto {
+    private String id;
     private String firstName;
     private String lastName;
     private List<AddressDto> addresses;
